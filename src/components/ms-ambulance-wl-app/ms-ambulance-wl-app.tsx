@@ -52,7 +52,7 @@ export class MsAmbulanceWlApp {
     }
   
     return (
-      <Host>
+      <Host> 
         { element === "editor"
         ? <ms-ambulance-wl-editor entry-id={entryId}
             ambulance-id={this.ambulanceId} api-base={this.apiBase}
