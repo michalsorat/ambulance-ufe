@@ -16,6 +16,7 @@ export class MsAmbulanceWlApp {
 
   componentWillLoad() {
      const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
+     console.log(baseUri);
 
      const toRelative = (path: string) => {
        if (path.startsWith( baseUri)) {
