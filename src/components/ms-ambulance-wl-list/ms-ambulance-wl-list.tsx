@@ -22,10 +22,10 @@ export class MsAmbulanceWlList {
       if (response.status < 299) {
         return response.data;
       } else {
-        this.errorMessage = `Cannot retrieve list of waiting patients: ${response.statusText}`
+        this.errorMessage = `Sorry. Cannot retrieve list of waiting patients: ${response.statusText}`
       }
     } catch (err: any) {
-      this.errorMessage = `Cannot retrieve list of waiting patients: ${err.message || "unknown"}`
+      this.errorMessage = `Sorry. Cannot retrieve list of waiting patients: ${err.message || "unknown"}`
     }
     return [];
   }
