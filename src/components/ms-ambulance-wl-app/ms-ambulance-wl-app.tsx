@@ -15,23 +15,23 @@ export class MsAmbulanceWlApp {
   @Prop() basePath: string="";
 
   componentWillLoad() {
-    const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
+     const baseUri = new URL(this.basePath, document.baseURI || "/").pathname;
 
-    const toRelative = (path: string) => {
-      if (path.startsWith( baseUri)) {
-        this.relativePath = path.slice(baseUri.length)
-      } else {
-        this.relativePath = ""
-      }
-    }
+     const toRelative = (path: string) => {
+       if (path.startsWith( baseUri)) {
+         this.relativePath = path.slice(baseUri.length)
+       } else {
+         this.relativePath = ""
+       }
+     }
 
-    window.navigation?.addEventListener("navigate", (ev: Event) => {
-      if ((ev as any).canIntercept) { (ev as any).intercept(); }
-      let path = new URL((ev as any).destination.url).pathname;
-      toRelative(path);
-    });
+     window.navigation?.addEventListener("navigate", (ev: Event) => {
+       if ((ev as any).canIntercept) { (ev as any).intercept(); }
+       let path = new URL((ev as any).destination.url).pathname;
+       toRelative(path);
+     });
 
-    toRelative(location.pathname)
+     toRelative(location.pathname)
   }
 
   render() {
@@ -59,7 +59,6 @@ export class MsAmbulanceWlApp {
             onentry-clicked={ (ev: CustomEvent<string>)=> navigate("./entry/" + ev.detail) } >
           </ms-ambulance-wl-list>
         }
-  
       </Host>
     );
   }

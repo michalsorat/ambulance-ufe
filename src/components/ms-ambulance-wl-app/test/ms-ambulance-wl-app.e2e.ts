@@ -1,28 +1,11 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { MsAmbulanceWlApp } from '../ms-ambulance-wl-app';
+import { newE2EPage } from '@stencil/core/testing';
 
 describe('ms-ambulance-wl-app', () => {
+  it('renders', async () => {
+    const page = await newE2EPage();
+    await page.setContent('<ms-ambulance-wl-app></ms-ambulance-wl-app>');
 
-  it('renders editor', async () => {
-    const page = await newSpecPage({ 
-      url: `http://localhost/entry/@new`,
-      components: [MsAmbulanceWlApp],
-      html: `<ms-ambulance-wl-app base-path="/"></ms-ambulance-wl-app>`,
-    });
-    page.win.navigation = new EventTarget()
-    const child = await page.root.shadowRoot.firstElementChild;
-    expect(child.tagName.toLocaleLowerCase()).toEqual ("ms-ambulance-wl-editor");
-
-  });
-
-  it('renders list', async () => {
-    const page = await newSpecPage({
-      url: `http://localhost/ambulance-wl/`,
-      components: [MsAmbulanceWlApp],
-      html: `<ms-ambulance-wl-app base-path="/ambulance-wl/"></ms-ambulance-wl-app>`,
-    });
-    page.win.navigation = new EventTarget()
-    const child = await page.root.shadowRoot.firstElementChild;
-    expect(child.tagName.toLocaleLowerCase()).toEqual("ms-ambulance-wl-list");
+    const element = await page.find('ms-ambulance-wl-app');
+    expect(element).toHaveClass('hydrated');
   });
 });

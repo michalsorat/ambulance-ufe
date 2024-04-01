@@ -13,9 +13,8 @@ export class MsAmbulanceWlEditor {
   @State() private duration = 15
 
   private handleSliderInput(event: Event) {
-     this.duration = +(event.target as HTMLInputElement).value;
+    this.duration = +(event.target as HTMLInputElement).value;
   }
-
 
   render() {
     return (
@@ -23,15 +22,15 @@ export class MsAmbulanceWlEditor {
         <md-filled-text-field label="Meno a Priezvisko" >
           <md-icon slot="leading-icon">person</md-icon>
         </md-filled-text-field>
-
+ 
         <md-filled-text-field label="Registračné číslo pacienta" >
           <md-icon slot="leading-icon">fingerprint</md-icon>
         </md-filled-text-field>
-
+ 
         <md-filled-text-field label="Čakáte od" disabled>
           <md-icon slot="leading-icon">watch_later</md-icon>
         </md-filled-text-field>
-
+ 
         <md-filled-select label="Dôvod návštevy">
           <md-icon slot="leading-icon">sick</md-icon>
           <md-select-option value="folowup">
@@ -47,7 +46,7 @@ export class MsAmbulanceWlEditor {
             <div slot="headline">Bolesti hrdla</div>
           </md-select-option>
         </md-filled-select>
-
+ 
         <div class="duration-slider">
           <span class="label">Predpokladaná doba trvania:&nbsp; </span>
           <span class="label">{this.duration}</span>
@@ -56,7 +55,7 @@ export class MsAmbulanceWlEditor {
             min="2" max="45" value={this.duration} ticks labeled
             oninput={this.handleSliderInput.bind(this)}></md-slider>
         </div>
-
+ 
         <md-divider></md-divider>
         <div class="actions">
           <md-filled-tonal-button id="delete"
