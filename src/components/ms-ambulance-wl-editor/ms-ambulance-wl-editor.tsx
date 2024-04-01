@@ -226,7 +226,7 @@ export class MsAmbulanceWlEditor {
             value={condition.code}
             selected={condition.code === this.entry?.condition?.code}>
                 <div slot="headline">{condition.value}</div>
-            </md-select-option>
+            </md-select-option> 
           )
       })}
       </md-filled-select>
